@@ -1,0 +1,5 @@
+Naive lookup: flagged 1,372 trades for 270 real breaks (precision 19%), with 1,112 false alarms and 10 breaks missed.
+Rule-based engine: flagged 270; recall 100%, precision 100%, correct break type 100%, in 0.02 s.
+Main naive failure: price rounding in the 3rd decimal flagged as a price break (1,082 trades).
+The engine stays error-free for price tolerances between 2 and 75 bp; 10 bp sits safely inside.
+Analyst time: 1,000 h a year by hand -> 45 h with the engine (96% saved), vs 229 h with the naive lookup.

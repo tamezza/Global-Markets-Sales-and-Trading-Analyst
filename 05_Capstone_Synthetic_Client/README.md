@@ -1,6 +1,6 @@
 # Part 5 — Capstone: A Synthetic Client, End to End
 
-**Status:** 🔄 In progress (Stages 1–3 of 4 done)
+**Status:** 🔄 In progress (all 4 stages done; final report to do)
 
 ## Why this capstone
 
@@ -29,6 +29,7 @@ Parts 1–4 followed Forage's scenarios and data. This capstone applies the same
 | `data/trades_oms.csv` | 3,000 trades from the order management system |
 | `data/trades_custodian.csv` | The same trades as booked by the custodian, with planted breaks: price, quantity, date, missing and duplicate trades, plus ID-format differences that are *not* real breaks |
 | `data/breaks_truth.csv` | Ground truth for every planted break, used to score the reconciliation engine |
+| `outputs/exceptions_report.csv` | The engine's exception report: break type, priority, OMS vs custodian values, suggested action |
 
 ## Roadmap
 
@@ -37,7 +38,7 @@ Parts 1–4 followed Forage's scenarios and data. This capstone applies the same
 | 1. Market insight | Part 1 | [01_market_insight.ipynb](01_market_insight.ipynb) | ✅ Done |
 | 2. Live market dynamics: replay the year with rebalancing triggers; rate and drawdown stress tests | Part 2 | [02_live_dynamics.ipynb](02_live_dynamics.ipynb) | ✅ Done |
 | 3. Product recommendation: an allocation that meets every client constraint, with products mapped to objectives | Part 3 | [03_product_recommendation.ipynb](03_product_recommendation.ipynb) | ✅ Done |
-| 4. Process automation: a working reconciliation engine, scored against the ground truth | Part 4 | `04_reconciliation_engine.ipynb` | ⏳ |
+| 4. Process automation: a working reconciliation engine, scored against the ground truth | Part 4 | [04_reconciliation_engine.ipynb](04_reconciliation_engine.ipynb) | ✅ Done |
 | Final report combining all four stages | — | `Capstone_Report.tex` | ⏳ |
 
 ## Stage 1 findings
@@ -78,10 +79,28 @@ Every allocation in 5% steps that respects the client's rules was checked: **40,
 
 The shared simulation code (simulated years, management approaches, metrics) is in `src/portfolio_simulation.py`, used by Stages 2 and 3.
 
+## Stage 4 findings
+
+Part 4 *described* a reconciliation engine. Here it is built ([src/reconciliation.py](src/reconciliation.py)) and scored against the ground truth, which the engine never sees. The test: 3,000 trades, 270 planted breaks, and 30 decoys where the same trade ID is written differently.
+
+| | Naive spreadsheet lookup | Rule-based engine |
+|---|---|---|
+| Trades flagged | 1,372 | 270 |
+| Real breaks found | 260 of 270 | **270 of 270** |
+| False alarms | 1,112 | **0** |
+| Correct break type | 81% | **100%** |
+| Precision (share of flags that are real) | 19% | **100%** |
+| Analyst hours a year (10 min per flag; manual today: 20 min per trade = 1,000 h) | 229 h | **45 h (−96%)** |
+
+- **The naive lookup drowns real breaks in noise.** 1,082 of its false alarms are price rounding in the third decimal. It also flags the 30 decoys as missing trades and never notices duplicate bookings.
+- **The engine applies four simple rules:** standardise trade IDs, count bookings per trade, allow a price tolerance, and give each trade a single break type by severity. Each break comes with a priority based on the money at stake and a suggested action ([outputs/exceptions_report.csv](outputs/exceptions_report.csv)).
+- **The tolerance setting is not fragile:** the engine makes no errors for any tolerance from 2 to 75 bp. The 10 bp setting sits well inside that range.
+- **Why 100% is not the headline:** the planted breaks are cleanly separated from the noise. Real reconciliations also involve partial fills, corporate actions, FX and split accounts. The meaningful results are the comparison with the naive lookup, the safe tolerance range, and the analyst time saved.
+
 ## Reproduce
 
 ```bash
 pip install -r ../requirements.txt
 python src/generate_data.py            # optional: the data are already committed
-jupyter notebook 01_market_insight.ipynb   # then 02_live_dynamics.ipynb, 03_product_recommendation.ipynb
+jupyter notebook 01_market_insight.ipynb   # then 02, 03 and 04_reconciliation_engine.ipynb
 ```

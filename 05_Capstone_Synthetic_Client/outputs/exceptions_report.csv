@@ -1,0 +1,271 @@
+trade_id,status,ticker,side,notional_usd,oms_price,custodian_price,price_gap_bp,oms_quantity,custodian_quantity,oms_date,custodian_date,action,priority
+KB-000552,price,SOLR,BUY,3729561.4999999995,390.53,429.58,999.9,9550,9550.0,2025-04-23,2025-04-23,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002621,settle_date,MEDA,BUY,3693176.0000000005,386.72,386.72,0.0,9550,9550.0,2025-05-21,2025-05-22,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-002161,price,MEDA,BUY,3571708.0,364.46,400.91,1000.1,9800,9800.0,2025-11-03,2025-11-03,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000677,price,MEDA,BUY,3476467.0,384.14,345.73,-999.9,9050,9050.0,2025-09-03,2025-09-03,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002338,settle_date,MEDA,BUY,3361244.0,346.52,346.52,0.0,9700,9700.0,2025-03-05,2025-03-06,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-000060,price,RETX,BUY,3329010.0,354.15,357.69,100.0,9400,9400.0,2025-03-11,2025-03-11,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002248,missing,MEDA,SELL,3272187.5,353.75,,,9250,,2025-01-16,,Custodian has no record: send the trade details to the custodian today,High
+KB-000012,price,MEDA,BUY,3236604.0,385.31,346.78,-1000.0,8400,8400.0,2025-01-13,2025-01-13,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001633,price,GENX,BUY,3201660.0,326.7,329.97,100.1,9800,9800.0,2025-11-10,2025-11-10,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002486,price,MEDA,SELL,3169572.0,377.33,415.06,999.9,8400,8400.0,2025-06-16,2025-06-16,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001927,price,MEDA,BUY,3101826.0,367.08,370.754,100.1,8450,8450.0,2025-10-07,2025-10-07,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001231,missing,MEDA,BUY,3029008.0,329.24,,,9200,,2025-12-12,,Custodian has no record: send the trade details to the custodian today,High
+KB-002235,missing,GENX,BUY,3026395.0,316.9,,,9550,,2025-03-04,,Custodian has no record: send the trade details to the custodian today,High
+KB-002916,settle_date,RETX,BUY,3012108.0,396.33,396.334,0.1,7600,7600.0,2025-11-19,2025-11-20,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-002253,price,MEDA,BUY,2953786.5,366.93,363.264,-99.9,8050,8050.0,2025-05-23,2025-05-23,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002363,missing,GENX,SELL,2902716.0,312.12,,,9300,,2025-09-09,,Custodian has no record: send the trade details to the custodian today,High
+KB-001868,price,RETX,BUY,2897536.5,364.47,368.106,99.8,7950,7950.0,2025-06-20,2025-06-20,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000904,settle_date,SOLR,BUY,2855216.0,385.84,385.84,0.0,7400,7400.0,2025-03-31,2025-04-01,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-002531,quantity,INSU,BUY,2851220.0,308.24,308.24,0.0,9250,9200.0,2025-02-05,2025-02-05,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000210,price,GENX,SELL,2798361.5,323.51,320.27,-100.2,8650,8650.0,2025-03-06,2025-03-06,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002815,settle_date,INSU,BUY,2787057.0,306.27,306.27,0.0,9100,9100.0,2025-10-15,2025-10-16,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001273,duplicate,SOLR,BUY,2708046.0,384.12,384.124,0.1,7050,7050.0,2025-09-18,2025-09-18,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-001229,price,SOLR,BUY,2690939.5,423.77,428.014,100.1,6350,6350.0,2025-01-15,2025-01-15,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001274,quantity,INSU,SELL,2668120.0,293.2,293.2,0.0,9100,9600.0,2025-10-08,2025-10-08,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002246,price,GENX,SELL,2665586.0,346.18,380.8,1000.1,7700,7700.0,2025-05-05,2025-05-05,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000873,settle_date,INSU,SELL,2553448.0,335.98,335.98,0.0,7600,7600.0,2025-04-18,2025-04-19,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-002759,price,GENX,BUY,2537336.0,333.86,330.52,-100.0,7600,7600.0,2025-01-30,2025-01-30,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000371,settle_date,MEDA,SELL,2528062.0,341.63,341.626,-0.1,7400,7400.0,2025-02-20,2025-02-21,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001434,quantity,RETX,SELL,2513187.0,353.97,353.97,0.0,7100,7150.0,2025-04-29,2025-04-29,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000605,price,INSU,SELL,2472008.0,280.91,283.72,100.0,8800,8800.0,2025-05-16,2025-05-16,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002188,quantity,GENX,BUY,2466816.0,337.92,337.916,-0.1,7300,7250.0,2025-10-17,2025-10-17,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000391,price,INSU,BUY,2466760.5,278.73,306.6,999.9,8850,8850.0,2025-04-30,2025-04-30,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000740,quantity,SOLR,SELL,2438210.5,403.01,403.006,-0.1,6050,6000.0,2025-06-13,2025-06-13,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000377,price,MEDA,SELL,2404829.5,351.07,347.56,-100.0,6850,6850.0,2025-08-28,2025-08-28,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000953,price,INSU,BUY,2392843.5,312.79,344.07,1000.0,7650,7650.0,2025-01-28,2025-01-28,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001784,price,INSU,BUY,2386618.5,324.71,321.464,-100.0,7350,7350.0,2025-01-24,2025-01-24,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001627,price,RETX,BUY,2381110.0,384.05,387.894,100.1,6200,6200.0,2025-09-12,2025-09-12,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002373,settle_date,MEDA,BUY,2356893.0,354.42,354.42,0.0,6650,6650.0,2025-10-01,2025-10-02,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001078,quantity,INSU,SELL,2338900.0,307.75,307.746,-0.1,7600,8100.0,2025-07-25,2025-07-25,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000981,price,INSU,SELL,2270616.0,306.84,276.16,-999.9,7400,7400.0,2025-03-17,2025-03-17,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000923,price,GENX,SELL,2260157.5,329.95,326.646,-100.1,6850,6850.0,2025-09-08,2025-09-08,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000731,quantity,RETX,BUY,2258520.0,342.2,342.204,0.1,6600,6550.0,2025-05-16,2025-05-16,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002663,settle_date,GENX,BUY,2228880.5,335.17,335.174,0.1,6650,6650.0,2025-10-29,2025-10-30,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001796,price,SOLR,BUY,2226379.5,408.51,404.424,-100.0,5450,5450.0,2025-10-10,2025-10-10,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000541,missing,INSU,BUY,2224684.0,288.92,,,7700,,2025-03-07,,Custodian has no record: send the trade details to the custodian today,High
+KB-000935,quantity,MEDA,BUY,2132255.0,349.55,349.55,0.0,6100,6600.0,2025-06-17,2025-06-17,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-001908,settle_date,MEDA,SELL,2119125.0,339.06,339.064,0.1,6250,6250.0,2025-09-26,2025-09-27,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-002901,price,RETX,SELL,2108129.0,357.31,321.58,-1000.0,5900,5900.0,2025-06-23,2025-06-23,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002214,price,RETX,SELL,2075755.5,374.01,411.41,1000.0,5550,5550.0,2025-06-17,2025-06-17,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002636,quantity,INSU,SELL,2064604.9999999998,308.15,308.146,-0.1,6700,7200.0,2025-10-06,2025-10-06,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002476,settle_date,SOLR,BUY,2052882.0,441.48,441.484,0.1,4650,4650.0,2025-09-19,2025-09-20,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-000429,price,INSU,SELL,2041604.9999999998,302.46,299.44,-99.8,6750,6750.0,2025-04-10,2025-04-10,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000589,settle_date,RETX,SELL,2004385.5,342.63,342.63,0.0,5850,5850.0,2025-10-08,2025-10-09,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001368,price,SOLR,BUY,1979402.5000000002,384.35,345.92,-999.9,5150,5150.0,2025-03-14,2025-03-14,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002182,quantity,RETX,SELL,1968324.0,345.32,345.32,0.0,5700,5650.0,2025-01-16,2025-01-16,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002830,price,GENX,BUY,1940263.5,315.49,283.944,-999.9,6150,6150.0,2025-03-19,2025-03-19,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001705,missing,GENX,SELL,1930717.0,354.26,,,5450,,2025-04-23,,Custodian has no record: send the trade details to the custodian today,High
+KB-001276,price,INSU,BUY,1930312.5000000002,308.85,277.974,-999.7,6250,6250.0,2025-01-09,2025-01-09,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000624,missing,INSU,BUY,1923615.0000000002,284.98,,,6750,,2025-11-06,,Custodian has no record: send the trade details to the custodian today,High
+KB-000389,price,RETX,BUY,1915276.0000000002,330.22,363.24,999.9,5800,5800.0,2025-11-26,2025-11-26,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001553,duplicate,BKRZ,SELL,1901500.5000000002,199.11,199.106,-0.2,9550,9550.0,2025-04-16,2025-04-16,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-001839,missing,RETX,SELL,1877337.0,379.26,,,4950,,2025-02-14,,Custodian has no record: send the trade details to the custodian today,High
+KB-002743,missing,MEDA,SELL,1865745.0,355.38,,,5250,,2025-04-02,,Custodian has no record: send the trade details to the custodian today,High
+KB-001723,quantity,MEDA,SELL,1857811.0,360.74,360.736,-0.1,5150,5100.0,2025-04-23,2025-04-23,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000304,price,INSU,BUY,1848422.0,303.02,299.99,-100.0,6100,6100.0,2025-09-10,2025-09-10,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001474,quantity,RETX,BUY,1788538.0,337.46,337.464,0.1,5300,5250.0,2025-07-22,2025-07-22,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000256,price,GENX,BUY,1777408.5,326.13,358.74,999.9,5450,5450.0,2025-04-22,2025-04-22,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001663,missing,BKRZ,BUY,1732298.0,201.43,,,8600,,2025-12-10,,Custodian has no record: send the trade details to the custodian today,High
+KB-002099,price,MEDA,BUY,1654107.0,363.54,327.19,-999.9,4550,4550.0,2025-11-04,2025-11-04,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000306,quantity,BKRZ,BUY,1647270.0,183.03,183.034,0.2,9000,8950.0,2025-06-12,2025-06-12,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002505,duplicate,RETX,BUY,1636681.0,337.46,337.46,0.0,4850,4850.0,2025-02-24,2025-02-24,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-000553,settle_date,SOLR,SELL,1632280.0,408.07,408.07,0.0,4000,4000.0,2025-10-10,2025-10-11,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-000911,price,BKRZ,BUY,1595520.0,199.44,179.496,-1000.0,8000,8000.0,2025-10-29,2025-10-29,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000668,settle_date,SOLR,BUY,1578852.0,438.57,438.566,-0.1,3600,3600.0,2025-12-23,2025-12-24,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-000423,duplicate,INSU,BUY,1572065.0,311.3,311.304,0.1,5050,5050.0,2025-01-20,2025-01-20,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-001755,price,QBIT,BUY,1500317.0,164.87,166.516,99.8,9100,9100.0,2025-09-02,2025-09-02,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002952,settle_date,SOLR,BUY,1466343.0,362.06,362.056,-0.1,4050,4050.0,2025-05-30,2025-05-31,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001709,price,LOGI,SELL,1464021.0,150.93,149.416,-100.3,9700,9700.0,2025-10-23,2025-10-23,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000588,settle_date,RETX,BUY,1448225.5,348.97,348.974,0.1,4150,4150.0,2025-01-24,2025-01-25,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-000020,price,QBIT,BUY,1427125.5,155.97,140.374,-999.9,9150,9150.0,2025-06-02,2025-06-02,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001268,price,LOGI,BUY,1424955.5,149.21,150.7,99.9,9550,9550.0,2025-01-10,2025-01-10,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000755,quantity,MEDA,BUY,1416865.0,333.38,333.38,0.0,4250,4750.0,2025-05-23,2025-05-23,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002779,duplicate,MEDA,BUY,1394587.5,371.89,371.89,0.0,3750,3750.0,2025-12-30,2025-12-30,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-000537,quantity,INSU,BUY,1381275.0,306.95,306.95,0.0,4500,4450.0,2025-10-31,2025-10-31,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000967,quantity,QBIT,SELL,1367479.5,163.77,163.766,-0.2,8350,8400.0,2025-03-17,2025-03-17,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-001629,price,LOGI,SELL,1352860.0,147.05,161.76,1000.3,9200,9200.0,2025-08-19,2025-08-19,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000116,settle_date,RETX,BUY,1347562.5,359.35,359.35,0.0,3750,3750.0,2025-12-03,2025-12-04,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001966,quantity,QBIT,SELL,1337730.0,157.38,157.384,0.3,8500,8450.0,2025-02-11,2025-02-11,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000394,price,MEDA,SELL,1333644.0,341.96,338.54,-100.0,3900,3900.0,2025-05-06,2025-05-06,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000367,quantity,SOLR,SELL,1308924.0,363.59,363.586,-0.1,3600,3650.0,2025-02-21,2025-02-21,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002755,missing,RETX,SELL,1306382.0,339.32,,,3850,,2025-03-20,,Custodian has no record: send the trade details to the custodian today,High
+KB-000644,price,GENX,SELL,1301400.0,325.35,328.6,99.9,4000,4000.0,2025-03-06,2025-03-06,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002600,price,QBIT,BUY,1285504.5,159.69,158.09,-100.2,8050,8050.0,2025-04-24,2025-04-24,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000526,quantity,LOGI,BUY,1284577.5,145.15,145.15,0.0,8850,8800.0,2025-08-26,2025-08-26,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000492,price,INSU,BUY,1277276.0,290.29,293.186,99.8,4400,4400.0,2025-10-17,2025-10-17,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002775,missing,QBIT,SELL,1261184.0,151.04,,,8350,,2025-04-14,,Custodian has no record: send the trade details to the custodian today,High
+KB-001646,price,BKRZ,SELL,1257900.0,179.7,177.9,-100.2,7000,7000.0,2025-08-26,2025-08-26,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001329,settle_date,LOGI,BUY,1240400.0,141.76,141.76,0.0,8750,8750.0,2025-06-27,2025-06-28,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001401,duplicate,SOLR,SELL,1238574.5,406.09,406.086,-0.1,3050,3050.0,2025-12-19,2025-12-19,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-001221,price,QBIT,BUY,1236480.0,153.6,168.964,1000.3,8050,8050.0,2025-10-17,2025-10-17,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001095,price,BKRZ,BUY,1225360.0,180.2,182.0,99.9,6800,6800.0,2025-04-14,2025-04-14,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001571,quantity,MEDA,BUY,1215412.5,324.11,324.11,0.0,3750,3800.0,2025-07-04,2025-07-04,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000192,price,LOGI,SELL,1199529.0,148.09,146.61,-99.9,8100,8100.0,2025-06-04,2025-06-04,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002698,missing,QBIT,SELL,1184717.0,162.29,,,7300,,2025-07-04,,Custodian has no record: send the trade details to the custodian today,High
+KB-000811,quantity,INSU,SELL,1179707.0,298.66,298.66,0.0,3950,3900.0,2025-11-19,2025-11-19,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-001277,quantity,MEDA,SELL,1179220.0,336.92,336.92,0.0,3500,3450.0,2025-07-14,2025-07-14,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-001897,price,MEDA,BUY,1178176.0,368.18,331.356,-1000.2,3200,3200.0,2025-11-21,2025-11-21,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002024,price,SOLR,SELL,1170501.0,396.78,357.096,-1000.2,2950,2950.0,2025-10-15,2025-10-15,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002951,settle_date,INSU,BUY,1162278.0,298.02,298.02,0.0,3900,3900.0,2025-12-26,2025-12-27,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-002221,price,BKRZ,BUY,1126940.0,194.3,213.73,1000.0,5800,5800.0,2025-09-01,2025-09-01,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-002563,quantity,SOLR,BUY,1107481.5,388.59,388.59,0.0,2850,3350.0,2025-04-29,2025-04-29,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-001438,quantity,LOGI,BUY,1090354.5,142.53,142.53,0.0,7650,7700.0,2025-01-21,2025-01-21,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-002539,settle_date,BKRZ,BUY,1076311.5,193.93,193.93,0.0,5550,5550.0,2025-05-15,2025-05-16,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-002624,missing,RETX,SELL,1066099.5,374.07,,,2850,,2025-12-19,,Custodian has no record: send the trade details to the custodian today,High
+KB-002795,settle_date,SOLR,BUY,1055886.0,406.11,406.11,0.0,2600,2600.0,2025-05-22,2025-05-23,Check the trade date / settlement instructions; usually a booking-date error,High
+KB-001993,missing,QBIT,BUY,1038772.5000000001,161.05,,,6450,,2025-06-27,,Custodian has no record: send the trade details to the custodian today,High
+KB-001924,price,BKRZ,BUY,1035396.0,191.74,210.914,1000.0,5400,5400.0,2025-06-20,2025-06-20,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001782,price,LOGI,BUY,1026060.0,139.6,153.56,1000.0,7350,7350.0,2025-05-05,2025-05-05,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001453,price,BKRZ,BUY,1017817.5,193.87,174.48,-1000.2,5250,5250.0,2025-07-29,2025-07-29,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-000349,price,INSU,BUY,1013166.0,321.64,353.796,999.8,3150,3150.0,2025-10-13,2025-10-13,Check the execution price with the broker; ask the custodian to amend the booking,High
+KB-001945,quantity,QBIT,BUY,1001279.9999999999,156.45,156.45,0.0,6400,6450.0,2025-03-25,2025-03-25,Confirm the filled quantity with the trader; amend the side that is wrong,High
+KB-000280,missing,BKRZ,BUY,936272.5000000001,197.11,,,4750,,2025-01-08,,Custodian has no record: send the trade details to the custodian today,High
+KB-001103,missing,LOGI,BUY,835015.0,121.9,,,6850,,2025-11-13,,Custodian has no record: send the trade details to the custodian today,High
+KB-000328,missing,LOGI,BUY,767978.0,132.41,,,5800,,2025-01-30,,Custodian has no record: send the trade details to the custodian today,High
+KB-001074,missing,WNDP,SELL,734913.0,113.94,,,6450,,2025-12-25,,Custodian has no record: send the trade details to the custodian today,High
+KB-001614,missing,LOGI,SELL,720641.0,135.97,,,5300,,2025-07-28,,Custodian has no record: send the trade details to the custodian today,High
+KB-001021,missing,QBIT,BUY,715650.0,143.13,,,5000,,2025-02-10,,Custodian has no record: send the trade details to the custodian today,High
+KB-001651,missing,QBIT,SELL,613312.0,165.76,,,3700,,2025-03-04,,Custodian has no record: send the trade details to the custodian today,High
+KB-001904,duplicate,RETX,SELL,521993.5,336.77,336.77,0.0,1550,1550.0,2025-05-21,2025-05-21,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-000860,missing,WNDP,BUY,489646.00000000006,104.18,,,4700,,2025-09-03,,Custodian has no record: send the trade details to the custodian today,High
+KB-001325,duplicate,MEDA,SELL,468356.0,334.54,334.54,0.0,1400,1400.0,2025-09-11,2025-09-11,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-000388,missing,LOGI,SELL,277938.0,154.41,,,1800,,2025-04-30,,Custodian has no record: send the trade details to the custodian today,High
+KB-002047,missing,NVLT,BUY,269753.0,30.14,,,8950,,2025-03-07,,Custodian has no record: send the trade details to the custodian today,High
+KB-000010,duplicate,WNDP,BUY,245740.0,111.7,111.7,0.0,2200,2200.0,2025-08-18,2025-08-18,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-000905,duplicate,LOGI,BUY,242434.5,146.93,146.93,0.0,1650,1650.0,2025-12-08,2025-12-08,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-001600,missing,CLDX,BUY,220562.5,35.29,,,6250,,2025-12-30,,Custodian has no record: send the trade details to the custodian today,High
+KB-002043,duplicate,CLDX,SELL,208150.00000000003,36.2,36.2,0.0,5750,5750.0,2025-10-15,2025-10-15,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-000598,missing,NVLT,BUY,190221.5,31.97,,,5950,,2025-09-16,,Custodian has no record: send the trade details to the custodian today,High
+KB-001818,missing,INSU,BUY,159703.5,290.37,,,550,,2025-10-22,,Custodian has no record: send the trade details to the custodian today,High
+KB-002408,duplicate,NVLT,BUY,149025.5,29.51,29.51,0.0,5050,5050.0,2025-12-24,2025-12-24,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-001340,duplicate,MEDA,SELL,144784.0,361.96,361.96,0.0,400,400.0,2025-09-26,2025-09-26,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-001834,missing,NVLT,SELL,112712.0,30.88,,,3650,,2025-06-19,,Custodian has no record: send the trade details to the custodian today,High
+KB-000493,duplicate,CLDX,SELL,111735.00000000001,34.38,34.38,0.0,3250,3250.0,2025-09-26,2025-09-26,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-002992,missing,MEDA,BUY,71254.0,356.27,,,200,,2025-11-26,,Custodian has no record: send the trade details to the custodian today,High
+KB-001350,duplicate,CLDX,SELL,15502.500000000002,34.45,34.454,1.2,450,450.0,2025-04-08,2025-04-08,Custodian booked the trade twice: request cancellation of the duplicate,High
+KB-000941,price,WNDP,SELL,997983.0,107.31,108.38,99.7,9300,9300.0,2025-08-21,2025-08-21,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000478,price,BKRZ,BUY,993060.0,183.9,165.506,-1000.2,5400,5400.0,2025-05-01,2025-05-01,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001158,price,LOGI,SELL,991847.5,149.15,164.074,1000.6,6650,6650.0,2025-12-11,2025-12-11,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001034,settle_date,WNDP,BUY,972865.0,108.7,108.7,0.0,8950,8950.0,2025-11-27,2025-11-28,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-000550,quantity,SOLR,SELL,945480.0,393.95,393.954,0.1,2400,2450.0,2025-05-02,2025-05-02,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000569,price,WNDP,BUY,943941.0,106.66,117.33,1000.4,8850,8850.0,2025-09-05,2025-09-05,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001404,settle_date,WNDP,BUY,938676.0,123.51,123.514,0.3,7600,7600.0,2025-07-28,2025-07-29,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-002852,price,WNDP,BUY,929670.5,114.07,125.484,1000.6,8150,8150.0,2025-07-25,2025-07-25,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001354,price,BKRZ,BUY,922746.0,198.44,218.284,1000.0,4650,4650.0,2025-12-31,2025-12-31,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002961,price,LOGI,BUY,910034.9999999999,144.45,130.0,-1000.3,6300,6300.0,2025-07-18,2025-07-18,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002392,settle_date,LOGI,BUY,905850.0,137.25,137.25,0.0,6600,6600.0,2025-09-16,2025-09-17,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-001666,price,GENX,SELL,880913.0,332.42,329.1,-99.9,2650,2650.0,2025-03-28,2025-03-28,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000375,price,RETX,BUY,872875.0,349.15,314.236,-1000.0,2500,2500.0,2025-05-27,2025-05-27,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000778,price,INSU,SELL,872304.0,342.08,345.496,99.9,2550,2550.0,2025-10-06,2025-10-06,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002148,quantity,QBIT,BUY,850225.9999999999,160.42,160.424,0.2,5300,5250.0,2025-09-01,2025-09-01,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002936,price,WNDP,SELL,834366.0,106.97,105.9,-100.0,7800,7800.0,2025-08-07,2025-08-07,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000938,price,BKRZ,BUY,812742.0,193.51,174.16,-999.9,4200,4200.0,2025-05-05,2025-05-05,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002134,settle_date,LOGI,SELL,806026.0,138.97,138.97,0.0,5800,5800.0,2025-06-03,2025-06-04,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-001200,price,GENX,BUY,767983.5,301.17,331.286,1000.0,2550,2550.0,2025-05-21,2025-05-21,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000417,settle_date,RETX,BUY,758928.5,352.99,352.99,0.0,2150,2150.0,2025-05-22,2025-05-23,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-001599,price,WNDP,BUY,756514.0,110.44,109.336,-100.0,6850,6850.0,2025-11-03,2025-11-03,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002361,quantity,GENX,SELL,732555.0,325.58,325.58,0.0,2250,2300.0,2025-01-14,2025-01-14,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000226,price,BKRZ,BUY,727669.0,184.22,182.384,-99.7,3950,3950.0,2025-04-22,2025-04-22,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001773,quantity,QBIT,BUY,721055.0,169.66,169.66,0.0,4250,4300.0,2025-11-21,2025-11-21,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002959,quantity,SOLR,BUY,718403.0,422.59,422.59,0.0,1700,1750.0,2025-04-17,2025-04-17,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000558,quantity,LOGI,BUY,711666.0,154.71,154.71,0.0,4600,5100.0,2025-10-15,2025-10-15,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-001950,price,INSU,BUY,689821.5,260.31,257.71,-99.9,2650,2650.0,2025-04-23,2025-04-23,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002758,quantity,QBIT,SELL,683356.0,158.92,158.924,0.3,4300,4250.0,2025-03-14,2025-03-14,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000634,quantity,BKRZ,BUY,681244.0,184.12,184.116,-0.2,3700,3650.0,2025-03-12,2025-03-12,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-001881,settle_date,LOGI,BUY,673900.0,146.5,146.5,0.0,4600,4600.0,2025-06-13,2025-06-14,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-001636,price,RETX,BUY,670761.0,343.98,378.38,1000.1,1950,1950.0,2025-10-14,2025-10-14,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001435,settle_date,LOGI,BUY,663052.5,133.95,133.954,0.3,4950,4950.0,2025-12-24,2025-12-25,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-000149,settle_date,QBIT,BUY,660473.0,136.18,136.184,0.3,4850,4850.0,2025-06-09,2025-06-10,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-000934,price,WNDP,BUY,653068.5,106.19,105.126,-100.2,6150,6150.0,2025-12-09,2025-12-09,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002317,price,INSU,SELL,651428.5,302.99,272.69,-1000.0,2150,2150.0,2025-01-10,2025-01-10,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000162,price,BKRZ,SELL,650566.5,188.57,186.68,-100.2,3450,3450.0,2025-07-09,2025-07-09,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000570,quantity,LOGI,BUY,644072.0,146.38,146.38,0.0,4400,4350.0,2025-06-25,2025-06-25,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002798,price,INSU,BUY,635998.0,289.09,291.98,100.0,2200,2200.0,2025-05-26,2025-05-26,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000996,price,LOGI,SELL,635400.0,127.08,114.37,-1000.2,5000,5000.0,2025-06-05,2025-06-05,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000800,price,INSU,SELL,618936.0,301.92,304.936,99.9,2050,2050.0,2025-11-19,2025-11-19,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000468,settle_date,BKRZ,SELL,617056.0,192.83,192.83,0.0,3200,3200.0,2025-08-06,2025-08-07,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-002811,quantity,INSU,BUY,610756.5,297.93,297.93,0.0,2050,2550.0,2025-03-13,2025-03-13,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000825,quantity,WNDP,SELL,608526.0,112.69,112.69,0.0,5400,5450.0,2025-08-18,2025-08-18,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000227,settle_date,QBIT,SELL,598038.0,142.39,142.386,-0.3,4200,4200.0,2025-01-23,2025-01-24,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-000906,price,WNDP,SELL,594236.0,112.12,123.33,999.8,5300,5300.0,2025-03-19,2025-03-19,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002835,quantity,QBIT,BUY,583939.5,164.49,164.494,0.2,3550,4050.0,2025-08-29,2025-08-29,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002746,quantity,SOLR,BUY,563355.0,433.35,433.354,0.1,1300,1350.0,2025-02-17,2025-02-17,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000023,price,RETX,BUY,546928.0,341.83,376.01,999.9,1600,1600.0,2025-04-14,2025-04-14,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001041,settle_date,GENX,BUY,543073.5,350.37,350.366,-0.1,1550,1550.0,2025-10-22,2025-10-23,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-002718,price,QBIT,SELL,539716.0,158.74,160.33,100.2,3400,3400.0,2025-10-29,2025-10-29,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002073,quantity,LOGI,SELL,527680.5,144.57,144.574,0.3,3650,3600.0,2025-04-03,2025-04-03,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000344,price,WNDP,SELL,527152.0,112.16,100.94,-1000.4,4700,4700.0,2025-07-02,2025-07-02,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002925,quantity,LOGI,BUY,502775.0,143.65,143.654,0.3,3500,4000.0,2025-11-03,2025-11-03,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002388,quantity,RETX,BUY,495166.0,353.69,353.694,0.1,1400,1350.0,2025-12-11,2025-12-11,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-001439,quantity,MEDA,SELL,483391.99999999994,345.28,345.284,0.1,1400,1350.0,2025-02-20,2025-02-20,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002648,settle_date,INSU,SELL,466890.0,311.26,311.264,0.1,1500,1500.0,2025-06-23,2025-06-24,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-002463,quantity,BKRZ,BUY,466700.5,190.49,190.494,0.2,2450,2400.0,2025-10-10,2025-10-10,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-001712,price,WNDP,BUY,446946.5,98.23,99.214,100.2,4550,4550.0,2025-05-06,2025-05-06,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001008,settle_date,BKRZ,BUY,426465.0,189.54,189.54,0.0,2250,2250.0,2025-09-08,2025-09-09,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-002076,price,MEDA,SELL,415920.5,361.67,365.29,100.1,1150,1150.0,2025-03-12,2025-03-12,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001546,quantity,WNDP,SELL,403776.0,112.16,112.16,0.0,3600,3550.0,2025-08-06,2025-08-06,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000791,price,QBIT,BUY,388861.0,146.74,145.274,-99.9,2650,2650.0,2025-08-19,2025-08-19,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002352,price,LOGI,SELL,386370.0,143.1,157.414,1000.3,2700,2700.0,2025-04-02,2025-04-02,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001854,quantity,LOGI,SELL,367378.5,144.07,144.07,0.0,2550,2500.0,2025-08-12,2025-08-12,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002982,quantity,WNDP,BUY,355142.0,116.44,116.44,0.0,3050,3100.0,2025-07-24,2025-07-24,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002658,quantity,CLDX,BUY,343275.0,34.5,34.504,1.2,9950,10000.0,2025-08-27,2025-08-27,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000195,quantity,MEDA,SELL,334200.5,351.79,351.79,0.0,950,1450.0,2025-05-30,2025-05-30,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-001572,price,QBIT,SELL,332040.0,166.02,164.36,-100.0,2000,2000.0,2025-12-15,2025-12-15,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001552,settle_date,GENX,BUY,317530.0,317.53,317.53,0.0,1000,1000.0,2025-05-08,2025-05-09,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-001657,price,NVLT,SELL,308484.0,31.16,30.854,-98.2,9900,9900.0,2025-03-11,2025-03-11,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002527,settle_date,CLDX,BUY,300241.5,34.71,34.71,0.0,8650,8650.0,2025-02-27,2025-02-28,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-001911,price,BKRZ,BUY,298188.0,180.72,198.79,999.9,1650,1650.0,2025-10-08,2025-10-08,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000063,price,NVLT,BUY,292125.0,30.75,30.436,-102.1,9500,9500.0,2025-04-09,2025-04-09,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000717,settle_date,CLDX,SELL,286368.0,37.68,37.684,1.1,7600,7600.0,2025-09-25,2025-09-26,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-000359,quantity,CLDX,SELL,285880.5,37.37,37.366,-1.1,7650,7700.0,2025-07-07,2025-07-07,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000761,price,NVLT,SELL,280987.5,31.75,31.43,-100.8,8850,8850.0,2025-12-03,2025-12-03,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002711,price,RETX,BUY,279712.0,349.64,384.6,999.9,800,800.0,2025-04-30,2025-04-30,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002537,price,CLDX,SELL,261797.5,36.11,39.724,1000.8,7250,7250.0,2025-04-02,2025-04-02,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001725,settle_date,BKRZ,SELL,258056.5,177.97,177.97,0.0,1450,1450.0,2025-05-14,2025-05-15,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-000054,quantity,NVLT,BUY,256477.0,28.34,28.34,0.0,9050,9000.0,2025-12-02,2025-12-02,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002163,settle_date,CLDX,BUY,254412.00000000003,34.38,34.376,-1.2,7400,7400.0,2025-06-24,2025-06-25,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-002245,price,BKRZ,SELL,248864.0,177.76,159.98,-1000.2,1400,1400.0,2025-05-30,2025-05-30,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000760,price,NVLT,SELL,243887.5,27.25,29.98,1001.8,8950,8950.0,2025-06-24,2025-06-24,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002706,price,CLDX,BUY,231040.0,36.1,36.46,99.7,6400,6400.0,2025-07-03,2025-07-03,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001628,quantity,CLDX,SELL,199983.0,37.38,37.38,0.0,5350,5300.0,2025-10-24,2025-10-24,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000961,quantity,NVLT,BUY,199326.5,31.39,31.39,0.0,6350,6850.0,2025-08-26,2025-08-26,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000470,quantity,NVLT,BUY,192337.50000000003,33.45,33.45,0.0,5750,5700.0,2025-11-13,2025-11-13,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-001093,price,CLDX,BUY,192219.0,37.69,33.92,-1000.3,5100,5100.0,2025-08-15,2025-08-15,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001791,price,INSU,BUY,185556.0,309.26,340.19,1000.1,600,600.0,2025-05-07,2025-05-07,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000762,price,QBIT,BUY,183336.0,152.78,154.31,100.1,1200,1200.0,2025-08-07,2025-08-07,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000395,price,BKRZ,SELL,180110.5,189.59,170.63,-1000.1,950,950.0,2025-12-15,2025-12-15,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000420,price,GENX,SELL,179690.5,326.71,294.036,-1000.1,550,550.0,2025-06-20,2025-06-20,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001790,price,MEDA,BUY,174240.0,348.48,351.96,99.9,500,500.0,2025-10-17,2025-10-17,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-000868,price,SOLR,SELL,162760.5,361.69,365.31,100.1,450,450.0,2025-02-27,2025-02-27,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001015,settle_date,CLDX,SELL,147763.0,38.38,38.38,0.0,3850,3850.0,2025-07-21,2025-07-22,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-001358,price,LOGI,BUY,145654.0,153.32,168.646,999.6,950,950.0,2025-06-10,2025-06-10,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002999,price,NVLT,BUY,145432.0,27.44,27.166,-99.9,5300,5300.0,2025-10-10,2025-10-10,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002088,quantity,NVLT,SELL,144103.5,30.99,30.986,-1.3,4650,4600.0,2025-05-06,2025-05-06,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-000614,price,CLDX,SELL,138200.0,34.55,34.2,-101.3,4000,4000.0,2025-11-21,2025-11-21,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001113,price,SOLR,SELL,136850.0,391.0,430.1,1000.0,350,350.0,2025-09-29,2025-09-29,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-002140,price,INSU,SELL,136300.5,302.89,299.86,-100.0,450,450.0,2025-12-25,2025-12-25,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001099,price,CLDX,SELL,131243.5,36.97,40.67,1000.8,3550,3550.0,2025-09-11,2025-09-11,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001820,quantity,NVLT,BUY,131239.5,30.17,30.17,0.0,4350,4300.0,2025-08-20,2025-08-20,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002346,settle_date,QBIT,BUY,130743.00000000001,145.27,145.27,0.0,900,900.0,2025-11-26,2025-11-27,Check the trade date / settlement instructions; usually a booking-date error,Medium
+KB-002770,quantity,CLDX,BUY,128500.99999999999,34.73,34.734,1.2,3700,3650.0,2025-08-08,2025-08-08,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002732,quantity,MEDA,SELL,118695.5,339.13,339.13,0.0,350,400.0,2025-12-12,2025-12-12,Confirm the filled quantity with the trader; amend the side that is wrong,Medium
+KB-002665,price,NVLT,SELL,116617.5,31.95,28.764,-997.2,3650,3650.0,2025-06-04,2025-06-04,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001045,price,CLDX,BUY,106530.0,35.51,35.154,-100.3,3000,3000.0,2025-09-30,2025-09-30,Check the execution price with the broker; ask the custodian to amend the booking,Medium
+KB-001892,price,CLDX,SELL,99000.0,36.0,32.4,-1000.0,2750,2750.0,2025-11-24,2025-11-24,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-000893,price,CLDX,BUY,96796.0,34.57,34.224,-100.1,2800,2800.0,2025-12-22,2025-12-22,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-000208,quantity,INSU,BUY,92931.0,309.77,309.77,0.0,300,250.0,2025-08-05,2025-08-05,Confirm the filled quantity with the trader; amend the side that is wrong,Low
+KB-000295,settle_date,SOLR,SELL,90630.0,362.52,362.524,0.1,250,250.0,2025-06-18,2025-06-19,Check the trade date / settlement instructions; usually a booking-date error,Low
+KB-000152,quantity,NVLT,BUY,86594.0,29.86,29.86,0.0,2900,3400.0,2025-07-03,2025-07-03,Confirm the filled quantity with the trader; amend the side that is wrong,Low
+KB-002283,price,CLDX,SELL,72240.0,36.12,35.76,-99.7,2000,2000.0,2025-07-08,2025-07-08,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-001040,price,NVLT,BUY,58680.0,29.34,32.27,998.6,2000,2000.0,2025-06-09,2025-06-09,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-001815,price,QBIT,BUY,52640.0,150.4,135.36,-1000.0,350,350.0,2025-12-22,2025-12-22,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-001374,price,NVLT,BUY,46269.5,31.91,28.716,-1000.9,1450,1450.0,2025-10-29,2025-10-29,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-000032,quantity,CLDX,BUY,44784.0,37.32,37.32,0.0,1200,1150.0,2025-05-21,2025-05-21,Confirm the filled quantity with the trader; amend the side that is wrong,Low
+KB-000404,settle_date,CLDX,BUY,43524.00000000001,36.27,36.274,1.1,1200,1200.0,2025-10-31,2025-11-01,Check the trade date / settlement instructions; usually a booking-date error,Low
+KB-000110,settle_date,LOGI,BUY,39663.0,132.21,132.21,0.0,300,300.0,2025-03-27,2025-03-28,Check the trade date / settlement instructions; usually a booking-date error,Low
+KB-001589,settle_date,QBIT,SELL,24444.0,162.96,162.956,-0.2,150,150.0,2025-10-02,2025-10-03,Check the trade date / settlement instructions; usually a booking-date error,Low
+KB-001429,price,NVLT,SELL,24112.0,30.14,27.13,-998.7,800,800.0,2025-01-30,2025-01-30,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-001513,price,SOLR,SELL,21135.0,422.7,380.434,-999.9,50,50.0,2025-04-07,2025-04-07,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-000973,price,LOGI,BUY,14716.0,147.16,148.63,99.9,100,100.0,2025-03-13,2025-03-13,Check the execution price with the broker; ask the custodian to amend the booking,Low
+KB-001116,price,NVLT,SELL,4335.0,28.9,31.79,1000.0,150,150.0,2025-11-20,2025-11-20,Check the execution price with the broker; ask the custodian to amend the booking,Low
