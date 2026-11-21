@@ -1,0 +1,75 @@
+% Shared style for all parts of the project
+% Usage: \usepackage{../style/forage}
+
+\usepackage[a4paper,margin=2cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[default]{sourcesanspro}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage[most]{tcolorbox}
+\usepackage{enumitem}
+
+\definecolor{navy}{HTML}{0A2A6B}
+\definecolor{boxgray}{HTML}{F7F7F7}
+\definecolor{rulegray}{HTML}{DDDDDD}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+
+% \infobox{icon}{title}{\item ... \item ...}
+\newcommand{\infobox}[3]{%
+  \begin{tcolorbox}[enhanced, colback=boxgray, frame hidden, arc=2mm,
+      left=6mm, right=6mm, top=5mm, bottom=5mm,
+      sidebyside, sidebyside align=center, lefthand width=1.6cm,
+      segmentation hidden]
+    {\fontsize{36}{36}\selectfont\color{navy}#1}
+    \tcblower
+    {\large\bfseries #2}\par\medskip
+    \begin{itemize}[leftmargin=1.2em, itemsep=3pt]
+      #3
+    \end{itemize}
+  \end{tcolorbox}\vspace{3mm}}
+
+\definecolor{avatarbg}{HTML}{A9B8E8}
+\definecolor{badgebg}{HTML}{EEF2FA}
+
+% Small outlined badge, e.g. YOU / MANAGER
+\newtcbox{\badge}{on line, colback=badgebg, colframe=navy, boxrule=0.6pt,
+  arc=1mm, left=2mm, right=2mm, top=1mm, bottom=1mm,
+  fontupper=\footnotesize\color{navy}}
+
+% Round avatar with an icon inside
+\newcommand{\avatar}[1]{%
+  \tikz\node[circle, fill=avatarbg, minimum size=1.6cm, inner sep=0pt,
+    text=navy, font=\fontsize{26}{26}\selectfont]{#1};}
+
+% \teammember{icon}{name}{role}{badge}{description}
+\newcommand{\teammember}[5]{%
+  \par\medskip
+  \begin{minipage}[t]{1.9cm}\vspace{0pt}\avatar{#1}\end{minipage}%
+  \begin{minipage}[t]{\dimexpr\linewidth-1.9cm\relax}\vspace{0pt}
+    {\Large #2}\hfill\badge{#4}\par\smallskip
+    {\large\itshape\color{gray}#3}\par\medskip
+    #5
+  \end{minipage}\par\bigskip
+  {\color{rulegray}\tikz\draw[dashed] (0,0) -- (\linewidth,0);}\par}
+
+% Section headings for the "Your Journey" page
+\newcommand{\heading}[1]{\par\vspace{6mm}{\Large\bfseries #1}\par\medskip}
+\newcommand{\subheading}[1]{\par\medskip{\bfseries #1}\par\smallskip}
+\setlength{\parskip}{4pt}
+
+
+% ---------- Quiz ----------
+\definecolor{correctgreen}{HTML}{2E9E5B}
+\newcounter{quizq}
+% \quizquestion{total}{question text}
+\newcommand{\quizquestion}[2]{%
+  \stepcounter{quizq}\par\vspace{5mm}
+  {\small\color{navy}QUESTION \arabic{quizq} OF #1}\par\smallskip
+  #2\par\smallskip}
+% Answer options: \option{...} and \correctoption{...}
+\newcommand{\option}[1]{%
+  \par\hspace*{2mm}{\color{navy}\faCircle[regular]}\hspace{3mm}#1\par\smallskip}
+\newcommand{\correctoption}[1]{%
+  \par\hspace*{2mm}{\color{correctgreen}\faCheckCircle}\hspace{3mm}%
+  \textbf{#1}\hspace{2mm}\mbox{\small\color{correctgreen}(correct)}\par\smallskip}
