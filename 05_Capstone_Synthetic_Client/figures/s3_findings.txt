@@ -1,0 +1,7 @@
+40,840 allocations respect every client rule; today's allocation already sits near the best edge.
+Option A (rule fixed in advance): 30 / 40 / 10 / 0 / 15 / 0 / 5; option B (safety first): 35 / 15 / 15 / 5 / 15 / 0 / 15 (order: Technology / Healthcare / Financials / Energy / Renewable Energy / Real Estate / Cash).
+On 5,000 new years, Option B beats the other option by 2.6 standard errors: recommended Option B, which needs 10 pts of one-way trading vs 25.
+Trades: Financials +5 pts, Energy +5 pts, Real Estate -10 pts.
+Versus today: return +0.11 pts a year (+5.6 standard errors); breach chance 5.7% -> 5.6%, 4.1% with the Stage 2 triggers.
+A +100 bp rate rise: -1.90% -> -1.36%; Technology's share of risk 52% -> 52%.
+On the actual year: today +16.3% (max drawdown -3.0%), recommended +17.7% (max drawdown -3.5%).

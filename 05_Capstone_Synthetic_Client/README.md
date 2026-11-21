@@ -1,6 +1,6 @@
 # Part 5 — Capstone: A Synthetic Client, End to End
 
-**Status:** 🔄 In progress (Stages 1–2 of 4 done)
+**Status:** 🔄 In progress (Stages 1–3 of 4 done)
 
 ## Why this capstone
 
@@ -36,7 +36,7 @@ Parts 1–4 followed Forage's scenarios and data. This capstone applies the same
 |-------|-----------|----------|--------|
 | 1. Market insight | Part 1 | [01_market_insight.ipynb](01_market_insight.ipynb) | ✅ Done |
 | 2. Live market dynamics: replay the year with rebalancing triggers; rate and drawdown stress tests | Part 2 | [02_live_dynamics.ipynb](02_live_dynamics.ipynb) | ✅ Done |
-| 3. Product recommendation: an allocation that meets every client constraint, with products mapped to objectives | Part 3 | `03_product_recommendation.ipynb` | ⏳ |
+| 3. Product recommendation: an allocation that meets every client constraint, with products mapped to objectives | Part 3 | [03_product_recommendation.ipynb](03_product_recommendation.ipynb) | ✅ Done |
 | 4. Process automation: a working reconciliation engine, scored against the ground truth | Part 4 | `04_reconciliation_engine.ipynb` | ⏳ |
 | Final report combining all four stages | — | `Capstone_Report.tex` | ⏳ |
 
@@ -64,10 +64,24 @@ Three ways of managing the same allocation were compared: buy and hold, monthly 
   The triggers cut the chance of breaching the drawdown limit by about a third, but give up about 1 point of median return and miss the 6% target slightly more often. Whether that is worth it is the client's choice. The simulation puts a number on it.
 - **Stage 1 underestimated the rate risk, and even got its direction wrong:** with the generator's true sensitivities, a +100 bp rate shock costs the portfolio **−1.9%**. The Stage 1 estimates, based on 5 rate moves, predicted **+0.3%**. One year of data was not enough to measure rate risk, which supports Stage 1's caution.
 
+## Stage 3 findings
+
+Every allocation in 5% steps that respects the client's rules was checked: **40,840** of them (each sector at most 40%, cash 5–20%, Renewable Energy at least 15%, no leverage). Each building block is mapped to a product: technology ETF, healthcare ETF, financials ETF, energy ETF, clean-energy ETF, REIT fund, and money-market fund for cash.
+
+- **Today's allocation is already close to the best the rules allow.** The candidates that beat it do so by only about 0.1 point of return.
+- **Option A** came from the rule I fixed in advance: highest median return without a higher chance of breaching the drawdown limit. It is Tech 30 / Healthcare 40 / Financials 10 / Renewable 15 / Cash 5. It pushes Healthcare to the 40% cap and cash to the 5% minimum.
+- **Option B** came from a safety-first rule that I added *after* seeing A's result, and I say so in the notebook. It is Tech 35 / Healthcare 15 / Financials 15 / Energy 5 / Renewable 15 / Cash 15.
+- **Both were validated on 5,000 new simulated years** the choice never saw. B beat A by 2.6 standard errors and needs 10 points of trading instead of 25, so **B is recommended**. The trades: **Financials +5, Energy +5, Real Estate −10**.
+- **What B delivers:** return +0.11 points a year over today (statistically real, but small). A +100 bp rate rise now costs −1.36% instead of −1.90%, because the client swaps the most rate-sensitive sector (Real Estate) for two that gain when rates rise (Financials and Energy). This is the Stage 1 insight about Energy, now confirmed.
+- **What B does not fix:** Technology still carries about 52% of the risk. Option A cuts that to 43%, but only by concentrating in Healthcare and running cash at the minimum. The bigger risk lever remains the Stage 2 triggers, which take the breach chance from 5.6% to 4.1%.
+- **Lesson:** a systematic search can show that the right answer is "small changes". Saying so, and showing that the gain is real but modest, is more credible than presenting a dramatic reallocation.
+
+The shared simulation code (simulated years, management approaches, metrics) is in `src/portfolio_simulation.py`, used by Stages 2 and 3.
+
 ## Reproduce
 
 ```bash
 pip install -r ../requirements.txt
 python src/generate_data.py            # optional: the data are already committed
-jupyter notebook 01_market_insight.ipynb   # then 02_live_dynamics.ipynb
+jupyter notebook 01_market_insight.ipynb   # then 02_live_dynamics.ipynb, 03_product_recommendation.ipynb
 ```
