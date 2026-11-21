@@ -10,7 +10,7 @@ My work on the **Bank of America Global Markets Sales and Trading Analyst** virt
 |------|-------|--------|--------|
 | 0 | Intro & scenario | ✅ Done | [00_Intro_Scenario](00_Intro_Scenario/) |
 | 1 | Market overview and insight generation | ✅ Done | [01_Market_Overview_Insight_Generation](01_Market_Overview_Insight_Generation/) |
-| 2 | Navigating live market dynamics | ⏳ To do | [02_Navigating_Live_Market_Dynamics](02_Navigating_Live_Market_Dynamics/) |
+| 2 | Navigating live market dynamics | ✅ Done | [02_Navigating_Live_Market_Dynamics](02_Navigating_Live_Market_Dynamics/) |
 | 3 | Client-centric product recommendations | ⏳ To do | [03_Client_Centric_Product_Recommendations](03_Client_Centric_Product_Recommendations/) |
 | 4 | Innovating through automation or process analysis | ⏳ To do | [04_Automation_Process_Analysis](04_Automation_Process_Analysis/) |
 
@@ -42,6 +42,8 @@ pip install -r requirements.txt
 cd 01_Market_Overview_Insight_Generation
 jupyter notebook analysis.ipynb   # writes figures/ used by the report
 ```
+
+Same for Part 2 (`02_Navigating_Live_Market_Dynamics/analysis.ipynb`), which needs no downloaded data.
 
 The Forage datasets are not included (simulation use only): download them into each part's `resources/` folder first.
 
