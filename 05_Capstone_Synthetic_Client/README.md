@@ -1,6 +1,8 @@
 # Part 5 — Capstone: A Synthetic Client, End to End
 
-**Status:** 🔄 In progress (all 4 stages done; final report to do)
+**Status:** ✅ Done
+
+**Final report:** [Capstone_Report.pdf](Capstone_Report.pdf), a 10-page client review combining the four stages, with recommendations.
 
 ## Why this capstone
 
@@ -39,7 +41,7 @@ Parts 1–4 followed Forage's scenarios and data. This capstone applies the same
 | 2. Live market dynamics: replay the year with rebalancing triggers; rate and drawdown stress tests | Part 2 | [02_live_dynamics.ipynb](02_live_dynamics.ipynb) | ✅ Done |
 | 3. Product recommendation: an allocation that meets every client constraint, with products mapped to objectives | Part 3 | [03_product_recommendation.ipynb](03_product_recommendation.ipynb) | ✅ Done |
 | 4. Process automation: a working reconciliation engine, scored against the ground truth | Part 4 | [04_reconciliation_engine.ipynb](04_reconciliation_engine.ipynb) | ✅ Done |
-| Final report combining all four stages | — | `Capstone_Report.tex` | ⏳ |
+| Final report combining all four stages | — | [Capstone_Report.pdf](Capstone_Report.pdf) | ✅ Done |
 
 ## Stage 1 findings
 
@@ -103,4 +105,5 @@ Part 4 *described* a reconciliation engine. Here it is built ([src/reconciliatio
 pip install -r ../requirements.txt
 python src/generate_data.py            # optional: the data are already committed
 jupyter notebook 01_market_insight.ipynb   # then 02, 03 and 04_reconciliation_engine.ipynb
+pdflatex Capstone_Report.tex             # report built from figures/
 ```
