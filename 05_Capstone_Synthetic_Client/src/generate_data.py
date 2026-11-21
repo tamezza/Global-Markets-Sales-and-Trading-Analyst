@@ -23,15 +23,17 @@ import numpy as np
 import pandas as pd
 
 SEED = 2025
-DATA = Path(__file__).resolve().parent.parent / "data"
+N_WEEKS = 52
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
 
 SECTORS = ["Technology", "Healthcare", "Financials", "Energy",
            "Renewable Energy", "Real Estate"]
 
-# Weekly factor model: r = alpha + beta * market + gamma * (rate change in 25 bp steps) + noise
-# gamma < 0: the sector falls when rates rise (growth, long-duration assets)
+# Weekly factor model for each sector:
+#   return = alpha + beta * market_return + rate_sensitivity * (rate change in 25 bp steps) + noise
+# A negative rate_sensitivity means the sector falls when rates rise (growth, long-duration assets).
 SECTOR_PARAMS = {
-    #                    alpha  beta   gamma  idio vol (all in % per week)
+    #                    alpha  beta   rate_sensitivity  noise_vol   (all in % per week)
     "Technology":       (0.10, 1.30, -0.80, 1.40),
     "Healthcare":       (0.06, 0.60, -0.10, 0.80),
     "Financials":       (0.05, 1.00,  0.60, 1.10),
@@ -40,7 +42,7 @@ SECTOR_PARAMS = {
     "Real Estate":      (0.03, 0.90, -0.90, 1.20),
 }
 
-# Market events: week -> (label, VIX shock, rate change in bp, sector shocks in %)
+# Scripted market events: week -> (label, VIX shock, rate change in bp, extra sector moves in %)
 EVENTS = {
     8:  ("Rate hike +25 bp", 4, 25, {}),
     14: ("Geopolitical shock", 9, 0, {"Energy": 3.0}),
@@ -53,8 +55,14 @@ EVENTS = {
     48: ("Rate cut -25 bp", -2, -25, {}),
 }
 
+# Planted reconciliation issues, as a share of all trades.
+# "id_format" is NOT a real break: the same trade ID written differently.
+# A naive exact match flags it; a good reconciliation engine should not.
+PLANTED_BREAKS = [("price", 0.040), ("quantity", 0.020), ("settle_date", 0.015),
+                  ("missing", 0.010), ("duplicate", 0.005), ("id_format", 0.010)]
 
-def client_profile() -> dict:
+
+def make_client_profile() -> dict:
     return {
         "name": "Kestrel Bay Capital",
         "note": "Fictional client created for this capstone; any resemblance to a real firm is coincidental.",
@@ -84,98 +92,122 @@ def client_profile() -> dict:
     }
 
 
-def market(rng: np.random.Generator) -> pd.DataFrame:
-    weeks = np.arange(1, 53)
-    dates = pd.date_range("2025-01-03", periods=52, freq="W-FRI")
+def make_market(rng: np.random.Generator) -> pd.DataFrame:
+    weeks = np.arange(1, N_WEEKS + 1)
+    dates = pd.date_range("2025-01-03", periods=N_WEEKS, freq="W-FRI")
 
-    rate = np.empty(52); vix = np.empty(52); mkt = np.empty(52)
-    r_prev, v_prev = 3.00, 15.0
-    rows = {s: np.empty(52) for s in SECTORS}
-    labels = []
-    for i, w in enumerate(weeks):
-        label, v_shock, d_bp, s_shock = EVENTS.get(w, ("", 0, 0, {}))
-        labels.append(label)
-        rate[i] = r_prev + d_bp / 100
-        vix[i] = max(10.0, 15 + 0.65 * (v_prev - 15) + v_shock + rng.normal(0, 1.2))
-        d_vix = vix[i] - v_prev
-        mkt[i] = 0.20 - 0.30 * d_vix + rng.normal(0, 1.0)
-        for s in SECTORS:
-            a, b, g, sd = SECTOR_PARAMS[s]
-            rows[s][i] = a + b * mkt[i] + g * (d_bp / 25) + s_shock.get(s, 0.0) + rng.normal(0, sd)
-        r_prev, v_prev = rate[i], vix[i]
+    policy_rate = np.empty(N_WEEKS)
+    vix = np.empty(N_WEEKS)
+    market_return = np.empty(N_WEEKS)
+    returns_by_sector = {sector: np.empty(N_WEEKS) for sector in SECTORS}
+    event_labels = []
 
-    df = pd.DataFrame({"week": weeks, "date": dates.date, "policy_rate_pct": rate.round(2),
-                       "vix": vix.round(1), "market_return_pct": mkt.round(2)})
-    for s in SECTORS:
-        df[f"{s} (%)"] = rows[s].round(2)
-    trend = pd.Series(mkt).rolling(4, min_periods=1).mean()
-    df["sentiment"] = np.select([trend > 0.4, trend < -0.4], ["Positive", "Negative"], "Neutral")
-    df["event"] = labels
-    return df
+    previous_rate, previous_vix = 3.00, 15.0
+    for i, week in enumerate(weeks):
+        label, vix_shock, rate_change_bp, sector_shocks = EVENTS.get(week, ("", 0, 0, {}))
+        event_labels.append(label)
+
+        policy_rate[i] = previous_rate + rate_change_bp / 100
+        # VIX is pulled back towards 15 each week, plus event shocks and noise
+        vix[i] = max(10.0, 15 + 0.65 * (previous_vix - 15) + vix_shock + rng.normal(0, 1.2))
+        vix_change = vix[i] - previous_vix
+        # the market falls when fear (VIX) rises
+        market_return[i] = 0.20 - 0.30 * vix_change + rng.normal(0, 1.0)
+
+        for sector in SECTORS:
+            alpha, beta, rate_sensitivity, noise_vol = SECTOR_PARAMS[sector]
+            returns_by_sector[sector][i] = (alpha + beta * market_return[i]
+                                            + rate_sensitivity * (rate_change_bp / 25)
+                                            + sector_shocks.get(sector, 0.0)
+                                            + rng.normal(0, noise_vol))
+        previous_rate, previous_vix = policy_rate[i], vix[i]
+
+    market = pd.DataFrame({"week": weeks, "date": dates.date,
+                           "policy_rate_pct": policy_rate.round(2),
+                           "vix": vix.round(1),
+                           "market_return_pct": market_return.round(2)})
+    for sector in SECTORS:
+        market[f"{sector} (%)"] = returns_by_sector[sector].round(2)
+    four_week_trend = pd.Series(market_return).rolling(4, min_periods=1).mean()
+    market["sentiment"] = np.select([four_week_trend > 0.4, four_week_trend < -0.4],
+                                    ["Positive", "Negative"], "Neutral")
+    market["event"] = event_labels
+    return market
 
 
-def trades(rng: np.random.Generator, n: int = 3000) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+def make_trades(rng: np.random.Generator, n_trades: int = 3000
+                ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Order-management records, custodian records with planted breaks, and the ground truth."""
-    tickers = {"Technology": ["NVLT", "QBIT", "CLDX"], "Healthcare": ["MEDA", "GENX"],
-               "Financials": ["BKRZ", "INSU"], "Renewable Energy": ["SOLR", "WNDP"],
-               "Real Estate": ["RETX", "LOGI"]}
-    px = {t: rng.uniform(20, 400) for ts in tickers.values() for t in ts}
-    all_t = list(px)
+    tickers_by_sector = {"Technology": ["NVLT", "QBIT", "CLDX"], "Healthcare": ["MEDA", "GENX"],
+                         "Financials": ["BKRZ", "INSU"], "Renewable Energy": ["SOLR", "WNDP"],
+                         "Real Estate": ["RETX", "LOGI"]}
+    base_price = {ticker: rng.uniform(20, 400)
+                  for tickers in tickers_by_sector.values() for ticker in tickers}
+    all_tickers = list(base_price)
 
-    days = pd.bdate_range("2025-01-02", "2025-12-31")
-    oms = pd.DataFrame({
-        "trade_id": [f"KB-{i:06d}" for i in range(1, n + 1)],
-        "trade_date": rng.choice(days, n),
-        "ticker": rng.choice(all_t, n),
-        "side": rng.choice(["BUY", "SELL"], n, p=[0.55, 0.45]),
-        "quantity": (rng.integers(1, 200, n) * 50),
+    business_days = pd.bdate_range("2025-01-02", "2025-12-31")
+    oms_trades = pd.DataFrame({
+        "trade_id": [f"KB-{i:06d}" for i in range(1, n_trades + 1)],
+        "trade_date": rng.choice(business_days, n_trades),
+        "ticker": rng.choice(all_tickers, n_trades),
+        "side": rng.choice(["BUY", "SELL"], n_trades, p=[0.55, 0.45]),
+        "quantity": (rng.integers(1, 200, n_trades) * 50),
     })
-    oms["price"] = [round(px[t] * (1 + rng.normal(0, 0.05)), 2) for t in oms["ticker"]]
-    oms = oms.sort_values(["trade_date", "trade_id"]).reset_index(drop=True)
-    oms["trade_date"] = pd.to_datetime(oms["trade_date"]).dt.date
+    oms_trades["price"] = [round(base_price[ticker] * (1 + rng.normal(0, 0.05)), 2)
+                           for ticker in oms_trades["ticker"]]
+    oms_trades = oms_trades.sort_values(["trade_date", "trade_id"]).reset_index(drop=True)
+    oms_trades["trade_date"] = pd.to_datetime(oms_trades["trade_date"]).dt.date
 
-    cust = oms.copy()
-    truth = pd.DataFrame({"trade_id": oms["trade_id"], "break_type": "none"})
-    idx = rng.permutation(n)
+    custodian_trades = oms_trades.copy()
+    truth = pd.DataFrame({"trade_id": oms_trades["trade_id"], "break_type": "none"})
+    shuffled_rows = rng.permutation(n_trades)
 
-    # Planted issues (shares of all trades). "id_format" is NOT a real break:
-    # the same trade written differently. A naive exact-match flags it; a good engine does not.
-    plan = [("price", 0.040), ("quantity", 0.020), ("settle_date", 0.015),
-            ("missing", 0.010), ("duplicate", 0.005), ("id_format", 0.010)]
-    start = 0
-    for kind, share in plan:
-        k = int(round(share * n)); sel = idx[start:start + k]; start += k
-        truth.loc[sel, "break_type"] = kind
-        if kind == "price":
-            cust.loc[sel, "price"] = (cust.loc[sel, "price"] * rng.choice([0.99, 1.01, 1.10, 0.90], k)).round(2)
-        elif kind == "quantity":
-            cust.loc[sel, "quantity"] = cust.loc[sel, "quantity"] + rng.choice([-50, 50, 500], k)
-        elif kind == "settle_date":
-            cust.loc[sel, "trade_date"] = [d + pd.Timedelta(days=1) for d in cust.loc[sel, "trade_date"]]
-        elif kind == "id_format":
-            cust.loc[sel, "trade_id"] = [f" {t.lower()}" for t in cust.loc[sel, "trade_id"]]
+    next_row = 0
+    for break_type, share in PLANTED_BREAKS:
+        n_rows = int(round(share * n_trades))
+        rows = shuffled_rows[next_row:next_row + n_rows]
+        next_row += n_rows
+        truth.loc[rows, "break_type"] = break_type
+        if break_type == "price":
+            price_errors = rng.choice([0.99, 1.01, 1.10, 0.90], n_rows)
+            custodian_trades.loc[rows, "price"] = (custodian_trades.loc[rows, "price"] * price_errors).round(2)
+        elif break_type == "quantity":
+            custodian_trades.loc[rows, "quantity"] = (custodian_trades.loc[rows, "quantity"]
+                                                      + rng.choice([-50, 50, 500], n_rows))
+        elif break_type == "settle_date":
+            custodian_trades.loc[rows, "trade_date"] = [day + pd.Timedelta(days=1)
+                                                        for day in custodian_trades.loc[rows, "trade_date"]]
+        elif break_type == "id_format":
+            custodian_trades.loc[rows, "trade_id"] = [f" {trade_id.lower()}"
+                                                      for trade_id in custodian_trades.loc[rows, "trade_id"]]
     # Tiny rounding noise on every price: real systems disagree in the 3rd decimal
-    cust["price"] = (cust["price"] + rng.choice([0, 0, 0, 0.004, -0.004], n)).round(3)
+    custodian_trades["price"] = (custodian_trades["price"]
+                                 + rng.choice([0, 0, 0, 0.004, -0.004], n_trades)).round(3)
 
-    missing = truth.index[truth["break_type"] == "missing"]
-    dup = truth.index[truth["break_type"] == "duplicate"]
-    cust = pd.concat([cust.drop(index=missing), cust.loc[dup]]).sort_values("trade_date").reset_index(drop=True)
-    cust = cust.rename(columns={"trade_date": "settle_ref_date"})
-    return oms, cust, truth
+    missing_rows = truth.index[truth["break_type"] == "missing"]
+    duplicated_rows = truth.index[truth["break_type"] == "duplicate"]
+    custodian_trades = (pd.concat([custodian_trades.drop(index=missing_rows), custodian_trades.loc[duplicated_rows]])
+                        .sort_values("trade_date").reset_index(drop=True))
+    custodian_trades = custodian_trades.rename(columns={"trade_date": "settle_ref_date"})
+    return oms_trades, custodian_trades, truth
 
 
 def main() -> None:
     rng = np.random.default_rng(SEED)
-    DATA.mkdir(parents=True, exist_ok=True)
-    (DATA / "client_profile.json").write_text(json.dumps(client_profile(), indent=2))
-    mk = market(rng)
-    mk.to_csv(DATA / "market_weekly.csv", index=False)
-    oms, cust, truth = trades(rng)
-    oms.to_csv(DATA / "trades_oms.csv", index=False)
-    cust.to_csv(DATA / "trades_custodian.csv", index=False)
-    truth.to_csv(DATA / "breaks_truth.csv", index=False)
-    print(f"market_weekly.csv: {len(mk)} weeks | trades_oms.csv: {len(oms)} | "
-          f"trades_custodian.csv: {len(cust)} | breaks: {(truth.break_type != 'none').sum()}")
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    (DATA_DIR / "client_profile.json").write_text(json.dumps(make_client_profile(), indent=2))
+
+    market = make_market(rng)
+    market.to_csv(DATA_DIR / "market_weekly.csv", index=False)
+
+    oms_trades, custodian_trades, truth = make_trades(rng)
+    oms_trades.to_csv(DATA_DIR / "trades_oms.csv", index=False)
+    custodian_trades.to_csv(DATA_DIR / "trades_custodian.csv", index=False)
+    truth.to_csv(DATA_DIR / "breaks_truth.csv", index=False)
+
+    n_breaks = (truth["break_type"] != "none").sum()
+    print(f"market_weekly.csv: {len(market)} weeks | trades_oms.csv: {len(oms_trades)} | "
+          f"trades_custodian.csv: {len(custodian_trades)} | planted issues: {n_breaks}")
 
 
 if __name__ == "__main__":

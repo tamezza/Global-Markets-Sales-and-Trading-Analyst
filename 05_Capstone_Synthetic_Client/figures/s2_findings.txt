@@ -1,0 +1,4 @@
+Replay of the actual year: Buy and hold +16.3%, Monthly rebalance +16.3%, Rebalance + risk triggers +16.0%.
+Across 5,000 years, the chance of breaching the 10% drawdown limit is 6.2% (buy and hold), 5.8% (monthly rebalance) and 4.2% (with risk triggers).
+Median return: +13.3% / +13.3% / +12.2%; chance of missing the 6% target: 21.2% / 20.8% / 23.6%.
+A +100 bp rate shock costs -1.90% with the true sensitivities but only +0.27% with the Stage 1 estimates: one year of data understates the rate risk.
