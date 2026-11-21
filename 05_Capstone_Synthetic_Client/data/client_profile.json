@@ -1,0 +1,33 @@
+{
+  "name": "Kestrel Bay Capital",
+  "note": "Fictional client created for this capstone; any resemblance to a real firm is coincidental.",
+  "type": "Mid-sized multi-family office",
+  "aum_usd": 250000000,
+  "allocation_pct": {
+    "Technology": 35,
+    "Healthcare": 15,
+    "Financials": 10,
+    "Energy": 0,
+    "Renewable Energy": 15,
+    "Real Estate": 10,
+    "Cash": 15
+  },
+  "risk_tolerance": "Moderate-high",
+  "horizon_years": "5-7",
+  "objectives": [
+    "Long-term growth above a 6% annual target",
+    "Keep the portfolio's maximum drawdown under 10%",
+    "Maintain a sustainability tilt (at least 15% in renewable or ESG assets)",
+    "Faster, more reliable trade reporting from the bank"
+  ],
+  "constraints": [
+    "No single sector above 40%",
+    "Cash between 5% and 20%",
+    "No leverage"
+  ],
+  "concerns": [
+    "Technology concentration and sensitivity to interest rates",
+    "Rate path uncertainty: hikes early in the year, cuts expected later",
+    "Late or inaccurate trade confirmations from the bank's back office"
+  ]
+}

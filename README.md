@@ -13,6 +13,7 @@ My work on the **Bank of America Global Markets Sales and Trading Analyst** virt
 | 2 | Navigating live market dynamics | ✅ Done | [02_Navigating_Live_Market_Dynamics](02_Navigating_Live_Market_Dynamics/) |
 | 3 | Client-centric product recommendations | ✅ Done | [03_Client_Centric_Product_Recommendations](03_Client_Centric_Product_Recommendations/) |
 | 4 | Innovating through automation or process analysis | ✅ Done | [04_Automation_Process_Analysis](04_Automation_Process_Analysis/) |
+| 5 | Capstone: synthetic client, end to end | 🔄 In progress | [05_Capstone_Synthetic_Client](05_Capstone_Synthetic_Client/) |
 
 Status: ✅ Done · 🔄 In progress · ⏳ To do
 
@@ -32,7 +33,8 @@ Status: ✅ Done · 🔄 In progress · ⏳ To do
 ├── 01_Market_Overview_Insight_Generation/
 ├── 02_Navigating_Live_Market_Dynamics/
 ├── 03_Client_Centric_Product_Recommendations/
-└── 04_Automation_Process_Analysis/
+├── 04_Automation_Process_Analysis/
+└── 05_Capstone_Synthetic_Client/   # own synthetic client and data
 ```
 
 ## Reproduce the analysis
