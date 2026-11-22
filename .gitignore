@@ -17,6 +17,7 @@
 # Python
 __pycache__/
 .ipynb_checkpoints/
+.pytest_cache/
 .venv/
 
 # Forage resources (for simulation use only, do not publish)

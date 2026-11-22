@@ -1,0 +1,53 @@
+# Runs on GitHub's computers after every push. Result: a green tick or a red cross next to the commit.
+# 1. unit tests (tests/)   2. regenerate the synthetic data   3. re-run the notebooks
+# 4. fail if any data file, LaTeX table or findings file differs from what is committed (reproducibility)
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:          # adds a "Run workflow" button in the Actions tab
+
+jobs:
+  test-and-reproduce:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+          cache: pip
+
+      - name: Install the pinned packages
+        run: pip install -r requirements.txt
+
+      - name: Unit tests
+        run: pytest -v
+
+      - name: Regenerate the synthetic data
+        working-directory: 05_Capstone_Synthetic_Client
+        run: python src/generate_data.py
+
+      - name: Run the capstone notebooks
+        working-directory: 05_Capstone_Synthetic_Client
+        run: |
+          for notebook in 01_market_insight 02_live_dynamics 03_product_recommendation 04_reconciliation_engine; do
+            jupyter nbconvert --to notebook --execute --inplace --ExecutePreprocessor.timeout=900 "$notebook.ipynb"
+          done
+
+      # Part 1 needs the Forage dataset, which is not in the repository, so it is not run here
+      - name: Run the Part 2-4 notebooks
+        run: |
+          for part in 02_Navigating_Live_Market_Dynamics 03_Client_Centric_Product_Recommendations 04_Automation_Process_Analysis; do
+            (cd "$part" && jupyter nbconvert --to notebook --execute --inplace analysis.ipynb)
+          done
+
+      # Notebooks and PDF charts always differ slightly (run timestamps), so they are not compared
+      - name: Check that every result is unchanged
+        run: |
+          git status --short
+          git diff --exit-code -- '*.csv' '*.json' '*/figures/*.tex' '*/figures/*.txt'

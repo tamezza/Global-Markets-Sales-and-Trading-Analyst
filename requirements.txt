@@ -1,5 +1,12 @@
-pandas
-numpy
-matplotlib
-openpyxl
-jupyter
+# Exact versions used to produce every result in this repository (Python 3.10).
+# Pinned so the notebooks give the same numbers on any machine, including GitHub Actions.
+numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.9.2
+openpyxl==3.1.5          # Part 1: reads the Forage Excel dataset
+nbformat==5.10.4         # notebooks: read/write
+nbconvert==7.16.6        # notebooks: execute from the command line (CI)
+nbclient==0.10.2
+ipykernel==6.29.5
+notebook==7.4.4          # interactive use (jupyter notebook)
+pytest==8.3.4            # automated tests (tests/)

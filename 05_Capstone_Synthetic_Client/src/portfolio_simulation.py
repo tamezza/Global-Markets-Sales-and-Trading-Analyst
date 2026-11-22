@@ -69,12 +69,18 @@ def simulate_years(n_years, n_weeks=WEEKS_PER_YEAR, seed=7):
 
 def make_risk_off_weights(target_weights):
     """Defensive version of an allocation: take 8 pts from Technology and 2 from Renewable Energy,
-    move them to cash (up to the 20% cap), and put the rest into Healthcare (up to the 40% cap)."""
+    move them to cash (up to the 20% cap), and put the rest into Healthcare (up to the 40% cap).
+    If cash and Healthcare are already close to their caps, move only what still fits."""
     weights = np.asarray(target_weights, dtype=float).copy()
     tech, renewable = ASSET_POSITION["Technology"], ASSET_POSITION["Renewable Energy"]
     healthcare, cash = ASSET_POSITION["Healthcare"], ASSET_POSITION["Cash"]
     taken_from_tech = min(0.08, weights[tech])
     taken_from_renewable = min(0.02, weights[renewable])
+    room_left = max(0.0, MAX_CASH - weights[cash]) + max(0.0, MAX_SECTOR - weights[healthcare])
+    if taken_from_tech + taken_from_renewable > room_left:          # scale both down to what fits
+        scale = room_left / (taken_from_tech + taken_from_renewable)
+        taken_from_tech *= scale
+        taken_from_renewable *= scale
     weights[tech] -= taken_from_tech
     weights[renewable] -= taken_from_renewable
     to_move = taken_from_tech + taken_from_renewable
