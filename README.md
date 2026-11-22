@@ -7,25 +7,25 @@ My work on the **Bank of America Global Markets Sales and Trading Analyst** virt
 ## What the project does
 
 ```mermaid
-flowchart LR
-    subgraph FORAGE["Forage simulation: one client per part"]
-        direction TB
+flowchart TB
+    subgraph FORAGE["Parts 1–4 · Forage simulation, one client per part"]
+        direction LR
         P1["<b>Part 1</b> · Market overview<br/>Emerald Investments"] --> R1["Market Insight Report"]
         P2["<b>Part 2</b> · Live market dynamics<br/>Horizon Capital"] --> R2["Market Advisory Email"]
         P3["<b>Part 3</b> · Product recommendations<br/>Summit Investments"] --> R3["Strategic Recommendation Proposal"]
         P4["<b>Part 4</b> · Automation<br/>Apex Global Investments"] --> R4["Process Improvement Proposal"]
     end
 
-    subgraph CAPSTONE["Part 5 · Capstone: my own synthetic client"]
-        direction TB
-        G["generate_data.py<br/>Kestrel Bay Capital · 52-week market · 3,000 trades"] --> S1["Stage 1 · Market insight"]
-        S1 --> S2["Stage 2 · Risk rules over 5,000 simulated years"]
-        S2 --> S3["Stage 3 · Allocation search and validation"]
-        S3 --> S4["Stage 4 · Working reconciliation engine"]
-        S4 --> CR["Capstone Report"]
+    subgraph CAPSTONE["Part 5 · Capstone on synthetic data"]
+        direction LR
+        G["generate_data.py<br/>client · market · trades"] --> S1["Stage 1<br/>Market insight"]
+        S1 --> S2["Stage 2<br/>Risk rules"]
+        S2 --> S3["Stage 3<br/>Allocation"]
+        S3 --> S4["Stage 4<br/>Reconciliation"]
+        S4 --> CR["Capstone<br/>Report"]
     end
 
-    FORAGE == "same four skills,<br/>applied end to end" ==> CAPSTONE
+    FORAGE == "same four skills, applied end to end" ==> CAPSTONE
 ```
 
 Every part is built the same way, so each number in a report can be traced back to code:
@@ -35,7 +35,7 @@ flowchart LR
     D["Data<br/>Forage files or synthetic"] --> N["analysis notebook<br/>Python: pandas, NumPy, matplotlib"]
     N --> F["figures/<br/>charts and LaTeX tables"]
     F --> T["report .tex<br/>shared style/forage.sty"]
-    T --> P["PDF deliverable"]
+    T --> P["PDF report"]
 ```
 
 ## Progress
